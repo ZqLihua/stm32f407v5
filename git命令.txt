@@ -1,0 +1,183 @@
+版本
+	git --version	
+升级
+	git update-git-for-windows
+
+设置全局配置	
+	git config --global user.name "your name" 
+	git config --global user.email "your email"
+
+	git config --global user.name "ZqLiHua" 
+	git config --global user.email "775494716@qq.com"
+
+		
+进入你的项目目录
+	cd d:/wamp/www/wap              //首先指定到你的项目目录下
+	git init
+	touch README.md
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin https://github.com/youtname/vscode.git   //用你仓库的url,vscode.git中vscode为仓库名称,使用时必须先创建
+	git push -u origin master  //提交到你的仓库
+
+已有项目
+	cd existing_git_repo
+	git remote add origin https://git.oschina.net/name/package.git
+	git push -u origin master	
+	
+	
+    点击后，会弹出让你输入账号密码，把你托管平台的账号密码输入上去就行了
+    不出问题的话你整个项目就会提交到云端上了。
+    在vs中每次更新代码都会要输入账号密码，方便起见，可以配置一下让GIT记住密码账号。
+	git config --global user.name "ZqLiHua" 
+	git config --global user.email "775494716@qq.com"
+	git config --global credential.helper store   //在Git Bash输入这个命令就可以了,这里可以执行git命令让git软件记住密码）如下
+	
+	更新回本地
+	比如当你在家里修改了代码提交到云端后，回到公司只需要用vscode打开项目点击菜单中的pull就可以同步过来了。
+	克隆项目
+	打开Git Bash输入以下命令	
+	
+	cd d:/project   //指定存放的目录
+	git clone https://github.com/youtname/your repository.git     //你的仓库地址
+	
+	
+	
+配置Git
+	 git config --global user.name 你的英文名
+	 git config --global user.email 你的邮箱
+	 git config --global push.default matching
+	 git config --global core.quotepath false
+	 git config --global core.editor "vim"
+
+1只在本地使用
+
+	1.1 初始化
+    mkdir git-demo-1   	创建目录作为我们的项目目录
+    cd git-demo-1		进入目录
+    git init			这句命令会在 git-demo-1 里创建一个 .git 目录
+    ls -la 				你就会看到 .git目录，它就是一个「仓库」，不要进去看。
+
+						在 git-demo-1目录里面添加任意文件，假设我们添加了两个文件，分别是 index.html 和 css/style.css
+    touch index.html
+    mkdir css
+    touch css/style.css
+
+    git status -sb 	运行后可以看到文件前面有 ?? 号
+					
+		## Initial commit on master
+		??  css/style.css
+		??  index.html			这个 ?? 表示 git不知道你要怎么对待这些变动
+	
+										
+    git add 		使用后将文件添加到「暂存区」
+	
+					你可以一个一个地 add
+    git add index.html
+    git add css/style.css
+
+					你也可以一次性 add
+    git add .		意思是把当前目录（.表示当前目录）里面的变动都加到「暂存区」
+	
+    git status -sb， 再次运行后可以看到 ?? 变成了 A
+	
+		## Initial commit on master
+		A  css/style.css
+		A  index.html			A 的意思就是添加，也就是说你告诉 git，这些文件我要加到仓库里
+			
+
+    git commit -m "信息" 	使用后将你 add过的内容「正式提交」到本地仓库（.git就是本地仓库），并添加一些注释信息，方便日后查阅
+							你可以一个一个地 commit
+	git add index.html
+	git add css/style.css
+
+    git commit . -m "添加了几个文件"	你也可以一次性 commit
+
+    git status -sb					发现没有文件变动了，这是因为文件的变动已经记录在仓库里了。
+    git log 						就可以看到历史上的变动	
+	
+		commit f0d95058cd32a332b98967f6c0a701c64a00810a
+		 Author: frankfang <frankfang1990@gmail.com>
+		 Date:   Thu Sep 28 22:30:43 2017 +0800
+
+		添加几个文件	
+		
+	1.2 文件变动	
+
+	
+	
+	
+如何上传更新到GitHub，你在本地目录有任何变动，只需按照以下顺序就能上传：
+
+	git add 文件路径
+	git commit -m "信息"
+	git pull  （一定不要忘记这一个命令）
+	git push		
+		
+使用VSCode+GitHub进行项目或者代码的版本控制
+	
+	使用VSCode打开项目或代码的仓库
+	
+	点击侧边栏的 源代码管理按钮，或者快捷键Ctrl+Shift+G，这时并没有消息提示
+	
+	这时我们新建一个style_test.css文件，旁边会出现U的符号，意思是更新尚未上传到GitHub
+	
+	再次打开源代码管理，发现多了更新提示。
+	
+	这时就可以提交更新到GitHub了，作用同命令行中的git commit -m "new css file"
+	
+	最后一步是pull和push，分别等同于命令行中的git pull和git push
+
+	
+    pull使用
+　　比如当你在家里修改了代码提交到云端后，回到公司只需要用vscode打开项目点击菜单中的pull就可以同步过来了。
+	
+	
+    克隆你的项目到本地
+
+　　回到家后想修改代码，但是电脑没有文件怎么办呢？  往下看
+
+　　首先你电脑还是的有vscode 和  GIT，，然后用git把上面那些全局配置再执行一次，如下
+
+	git config --global user.name "ASxx"
+	git config --global user.email "123456789@qq.com"  
+	git config --global credential.helper store    
+
+　　然后打开Git Bash输入以下命令
+	cd d:/test   //指定存放的目录
+	git clone https://git.oschina.net/name/test.git   //你的仓库地址
+	
+    打开 Git Bash，找一个安全的目录，比如 ~/Desktop 。
+
+	git clone 你刚才得到的以git@github.com开头的地址	运行完了你就会发现，桌面上多出一个 git-demo-2。
+
+	cd git-demo-2		进入这个目录。
+	ls -la 				运行后你会看到，远程目录的所有文件都在这里出现了，另外你还看到了 .git 本地仓库。这时你就可以添加文件，git add，然后 git commit 了。
+
+
+如何上传更新
+
+	你在本地目录有任何变动，只需按照以下顺序就能上传：
+
+	git add 文件路径
+	git commit -m "信息"
+	git pull  （一定不要忘记这一个命令）
+	git push
+
+    为何要push之前要pull？
+    push是推送，pull是拉取的意思。假如你在远端修改了文件，然后本地并没有同步更新，
+	这时候你push的时候就会出现错误，因为两端不同步了。多人合作的时候这种问题就会出现的更多，
+	所以现在养成push之前要pull的习惯。
+	
+	下面是例子
+
+
+	cd git-demo-1
+	touch index2.html
+	git add index2.html
+	git commit -m "新建 index2.html"
+	git pull
+	git push
+
+	然后去 git-demo-1 的 GitHub 页面，就能看到 index2.html 出现在里面了	
+	
